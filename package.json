@@ -1,0 +1,25 @@
+{
+    "name": "compliance-debug-syntax-compdebug",
+    "displayName": ".compdebug",
+    "description": "Compliance debug syntax highlight",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.61.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "compliance_debug",
+            "aliases": ["compliance_debug", "compliance_debug"],
+            "extensions": [".compdebug"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "compliance_debug",
+            "scopeName": "source.compdebug",
+            "path": "./syntaxes/compliance_debug.tmLanguage.json"
+        }]
+    }
+}
