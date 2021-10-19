@@ -12,7 +12,7 @@ Plugin to enable sytax to the compliance debug output.
 ## Preview
 
 
-[![Compliance Debug Syntax](https://raw.githubusercontent.com/andresmorelos/compliance-debug-syntax/main/images/preview.png)](###)
+[![Compliance Debug Syntax](https://raw.githubusercontent.com/AndresMorelos/compliance-debug-syntax/main/images/preview.png)](###)
 
 
 ## Attribution
