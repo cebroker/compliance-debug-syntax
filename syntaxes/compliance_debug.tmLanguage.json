@@ -3,18 +3,77 @@
 	"name": "compliance_debug",
 	"patterns": [
 		{
+			"include": "#entity"
+		},
+		{
 			"include": "#keywords"
 		},
 		{
+			"include": "#constant"
+		},
+		{
 			"include": "#strings"
+		},
+		{
+			"include": "#variable"
 		}
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.compliance_debug",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.compliance_debug",
+					"match": "\\b(if|IF|while|for|return|AFTER|FROM|ELSE|else|BEFORE|GOTO)\\b"
+				},
+				{
+					"name": "keyword.operator",
+					"match": "\\b(IS|NOT|AND)\\b"
+				}
+			]
+		},
+		"constant": {
+			"patterns": [
+				{
+					"name": "constant.numeric",
+					"match": "\\b(\\d+)\\b"
+				},
+				{
+					"name": "constant.language",
+					"match": "\\b(TRUE|FALSE|YES|NO|NULL)\\b"
+				}
+			]
+		},
+		"entity": {
+			"patterns": [
+				{
+					"name": "entity.name.type",
+					"match": "\\b(REQUIREMENT\\s?|LICENSE\\s?|cd prof\\s?|pk_lic\\s?|SA\\s?|LP\\s?|id_scenario\\s?|user\\s?|Credit ID\\s*|RA\\s*|id_roster\\s*|\\s*publish ID\\s*|\\s*vam_hours_applied\\s*)\\b"
+				},
+				{
+					"name": "entity.name.type",
+					"match": "\\b(ce_account.am_hours_applied\\s*)\\b"
+				},
+				{
+					"name": "entity.name.tag",
+					"match": "\\bMandatory\\?|end\\s?|cd_scenario_cycle\\s?|min hours\\s?|\\s*cd_credit_type\\s*|\\s*Earned date\\s*\\b"
+				},
+				{
+					"name": "entity.name.tag",
+					"match": "\\b(\\s*Earned hrs\\s*|\\s*Remaining Hrs\\s*|\\s*course type\\s*|\\s*delivery method\\s*)\\b"
+				},
+				{
+					"name": "entity.name.function",
+					"match": "\\b(.\\w*\\()"
+				},
+				{
+					"name": "entity.name.class",
+					"match": "\\b((Pkg|pkg\\pKg|pkG).*(?=\\.))\\b"
+				},
+				{
+					"name": "entity.name.method",
+					"match": "\\<{2}\\w*\\>{2}"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.compliance_debug",
@@ -24,6 +83,30 @@
 				{
 					"name": "constant.character.escape.compliance_debug",
 					"match": "\\\\."
+				}
+			]
+		},
+		"variable": {
+			"patterns": [
+				{
+					"name": "variable.language",
+					"match": "(\\+{2,}|\\={2,}|\\.{2,}|\\-{2,}|(\\=\\*){2,}|=>)"
+				},
+				{
+					"name": "variable.parameter",
+					"match": "(\\s*vam_max_applicable_hours\\s*|\\s*vin_additional_req_outstanding\\s*|\\s*vreq_hours_missing\\s*|\\s*pin_allocating_overage\\s*)"
+				},
+				{
+					"name": "variable.parameter",
+					"match": "(\\s*vin_prior_credit\\s*|\\s*vin_fulfill_special_applied\\s*|\\s*vin_disc_course_manipulation\\s*|\\s*vin_board_post_to_disciplinary\\s*)"
+				},
+				{
+					"name": "variable.parameter",
+					"match": "(\\s*vds_applied_comments\\s*|\\s*vapply_credit_to_overage\\s*|\\s*pcredit_hours_remaining\\s*|\\s*vcredit_hours_truncated\\s*|\\s*ds_compliance_comments\\s*)"
+				},
+				{
+					"name": "variable.parameter",
+					"match": "(\\s*vreq_hours_applicable\\s*|\\s*vid_license_period_dual\\s*|\\s*vcd_course_type_current\\s*|\\s*vin_apply_new_delinq_credits\\s*|\\s*min hrs applicable\\s*)"
 				}
 			]
 		}
